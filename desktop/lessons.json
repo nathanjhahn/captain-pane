@@ -1,0 +1,368 @@
+[
+  {
+    "id": "basics",
+    "title": "Find your sea legs",
+    "topic": "The essentials",
+    "duration": "3 min",
+    "intro": "Welcome aboard. tmux keeps your terminal workspace alive, even when you leave. Let's get comfortable before we set sail.",
+    "concept": "A session is your workspace. Windows are tabs inside it. Panes divide a window into multiple terminals. The terminal on the right is real — click it before using shortcuts.",
+    "steps": [
+      "Click Connect terminal below the practice area. You're in a window called practice. Run pwd to see where you are.",
+      "Try the window chooser, then press Escape to return. Open key-binding help and press q to leave it.",
+      "When you're comfortable, click Check my work. This first mission is self-assessed."
+    ],
+    "keys": [
+      [
+        "Ctrl-b w",
+        "Choose a window"
+      ],
+      [
+        "Ctrl-b ?",
+        "Show key bindings"
+      ],
+      [
+        "q",
+        "Leave key-binding help"
+      ]
+    ],
+    "tip": "The prefix is a sequence: hold Ctrl and press b, release BOTH, then press the next key. Don't hold Ctrl for the second key.",
+    "checkpoint": "Connect to your practice session and try the shortcuts."
+  },
+  {
+    "id": "windows",
+    "title": "Open a new horizon",
+    "topic": "Create windows",
+    "duration": "3 min",
+    "intro": "One window for your code, another for your server, another for notes. Give each task a little room.",
+    "concept": "Each new tmux window has its own shell. Switching windows doesn't stop anything running in the others.",
+    "steps": [
+      "With the terminal focused, create a new window.",
+      "Rename the new window to notes. At tmux's prompt, press Ctrl-u to clear the old name, type notes, then press Enter.",
+      "Run echo \"Ahoy, Captain Pane!\" in your new shell."
+    ],
+    "keys": [
+      [
+        "Ctrl-b c",
+        "Create a window"
+      ],
+      [
+        "Ctrl-b ,",
+        "Rename the current window"
+      ],
+      [
+        "Ctrl-b w",
+        "Choose a window"
+      ]
+    ],
+    "tip": "Don't rename practice — we'll use it as your home port for later missions.",
+    "checkpoint": "A window named notes exists."
+  },
+  {
+    "id": "rename",
+    "title": "Chart your workspace",
+    "topic": "Rename & navigate",
+    "duration": "2 min",
+    "intro": "A good workspace has names you can recognize and routes you can navigate without thinking.",
+    "concept": "The status bar lists your windows. You can cycle through them, choose one from a list, or jump back to the last one.",
+    "steps": [
+      "Select notes using the window chooser.",
+      "Rename notes to journal. At the rename prompt, use Ctrl-u to clear the old name, then type journal and press Enter.",
+      "Try next, previous, and last-window shortcuts. End in whichever window you like."
+    ],
+    "keys": [
+      [
+        "Ctrl-b ,",
+        "Rename to journal"
+      ],
+      [
+        "Ctrl-b n",
+        "Next window"
+      ],
+      [
+        "Ctrl-b p",
+        "Previous window"
+      ],
+      [
+        "Ctrl-b l",
+        "Last window (lowercase L)"
+      ]
+    ],
+    "tip": "A checkpoint checks the result, not every keystroke. Take your time exploring the shortcuts.",
+    "checkpoint": "journal exists and notes no longer exists."
+  },
+  {
+    "id": "split",
+    "title": "Divide and conquer",
+    "topic": "Work with panes",
+    "duration": "4 min",
+    "intro": "Two views, one window. Keep a command running on one side while you work on the other.",
+    "concept": "Panes share a window, but each has its own terminal. Zoom temporarily gives one pane the full window without closing the others.",
+    "steps": [
+      "Use the window chooser to select practice.",
+      "Split it into at least two panes. Try moving focus and running pwd in each.",
+      "Try zooming a pane, unzooming it, and cycling through layouts."
+    ],
+    "keys": [
+      [
+        "Ctrl-b %",
+        "Split left / right"
+      ],
+      [
+        "Ctrl-b \"",
+        "Split top / bottom"
+      ],
+      [
+        "Ctrl-b arrow",
+        "Move to an adjacent pane"
+      ],
+      [
+        "Ctrl-b o",
+        "Next pane"
+      ],
+      [
+        "Ctrl-b z",
+        "Zoom / unzoom"
+      ],
+      [
+        "Ctrl-b Space",
+        "Cycle layouts"
+      ]
+    ],
+    "tip": "If tmux says the pane is too small, enlarge the app window and try again. % usually requires Shift-5 on a US keyboard.",
+    "checkpoint": "practice contains at least two panes."
+  },
+  {
+    "id": "layouts",
+    "title": "Give every pane a berth",
+    "topic": "Arrange layouts",
+    "duration": "3 min",
+    "intro": "Three terminals do not have to mean a cramped deck. Let tmux arrange them for you.",
+    "concept": "Layouts rearrange existing panes without restarting their shells. even-horizontal gives each pane a side-by-side column; even-vertical stacks them.",
+    "steps": [
+      "Select practice. If needed, use Ctrl-b % until it contains exactly three panes. Unzoom with Ctrl-b z if a single pane fills the window.",
+      "Open the tmux command prompt with Ctrl-b :, type select-layout even-horizontal, and press Enter. This is a tmux command, not a shell command.",
+      "Try cycling layouts with Ctrl-b Space, then return to even-horizontal using the command prompt before checking."
+    ],
+    "keys": [
+      [
+        "Ctrl-b %",
+        "Add a side-by-side pane"
+      ],
+      [
+        "Ctrl-b Space",
+        "Cycle layouts"
+      ],
+      [
+        "Ctrl-b :",
+        "Open the tmux command prompt"
+      ],
+      [
+        "select-layout even-horizontal",
+        "Arrange equal-width columns"
+      ]
+    ],
+    "tip": "If the terminal feels cramped, enlarge the app or drag its edge. Layout changes preserve each shell and its running commands.",
+    "checkpoint": "practice has at least three unzoomed panes in equal-width, side-by-side columns."
+  },
+  {
+    "id": "resize",
+    "title": "Make room for the big job",
+    "topic": "Resize panes",
+    "duration": "3 min",
+    "intro": "A log viewer needs less room than your editor. Give the task that matters a little more space.",
+    "concept": "You can resize a pane without changing the layout of your whole workspace. Resize commands use terminal cells, not pixels.",
+    "steps": [
+      "Select practice and keep the three side-by-side panes from the previous mission. Select the leftmost pane with Ctrl-b Left (repeat as needed).",
+      "Press Ctrl-b : and enter resize-pane -R 10 to grow this pane to the right by ten columns.",
+      "Try resize-pane -L 5 to take back five columns, then resize-pane -R 10 again. Leave the columns noticeably unequal before checking."
+    ],
+    "keys": [
+      [
+        "Ctrl-b Left",
+        "Focus the pane to the left"
+      ],
+      [
+        "Ctrl-b :",
+        "Open the tmux command prompt"
+      ],
+      [
+        "resize-pane -R 10",
+        "Grow toward the right"
+      ],
+      [
+        "resize-pane -L 5",
+        "Shrink from the right"
+      ]
+    ],
+    "tip": "Choose the leftmost pane so there is a neighbor to its right. If there is not enough space, enlarge the app before resizing.",
+    "checkpoint": "practice has at least three unzoomed side-by-side panes, with column widths differing by at least eight cells."
+  },
+  {
+    "id": "zoom",
+    "title": "Bring one task into focus",
+    "topic": "Zoom a pane",
+    "duration": "2 min",
+    "intro": "Sometimes one task deserves the whole screen. Zoom in without closing the rest of your workspace.",
+    "concept": "Zoom changes what you see, not how many panes exist. Other shells keep running while they are hidden. A Z in tmux’s status bar marks a zoomed window.",
+    "steps": [
+      "Select a pane in practice. Keep at least two panes in that window.",
+      "Press Ctrl-b z to zoom the selected pane. Press it again to see your original layout return.",
+      "Zoom once more and leave it zoomed while you click Check my work. The next mission starts by unzooming."
+    ],
+    "keys": [
+      [
+        "Ctrl-b o",
+        "Select the next pane"
+      ],
+      [
+        "Ctrl-b z",
+        "Toggle pane zoom"
+      ]
+    ],
+    "tip": "A zoomed pane is not a new window. Do not type exit to leave zoom: that would close the shell.",
+    "checkpoint": "practice has multiple panes and is currently zoomed."
+  },
+  {
+    "id": "move-pane",
+    "title": "Move a task to a new berth",
+    "topic": "Move panes",
+    "duration": "3 min",
+    "intro": "Your workspace can evolve with your work. Move a running shell between windows instead of starting over.",
+    "concept": "join-pane relocates a pane, keeping its shell and programs alive. Its -t argument names the destination window; -h places the moved pane beside an existing pane.",
+    "steps": [
+      "Select practice and unzoom with Ctrl-b z. Keep at least two panes in practice.",
+      "Make sure journal exists using Ctrl-b w. If it is missing (for example, after finishing the original course), create a window with Ctrl-b c, rename it journal with Ctrl-b , and return to practice.",
+      "In a practice pane, run export MOVED_ABOARD=ahoy. Then open Ctrl-b : and enter join-pane -h -t practice:journal.",
+      "In the moved shell, run echo $MOVED_ABOARD. It should still say ahoy. Leave journal with at least two panes and keep practice alive."
+    ],
+    "keys": [
+      [
+        "Ctrl-b z",
+        "Unzoom before moving"
+      ],
+      [
+        "Ctrl-b w",
+        "Choose a window"
+      ],
+      [
+        "Ctrl-b :",
+        "Open the tmux command prompt"
+      ],
+      [
+        "join-pane -h -t practice:journal",
+        "Move this pane into journal"
+      ]
+    ],
+    "tip": "Enter join-pane at the tmux command prompt, not at your shell prompt. The following cleanup missions will close the extra practice panes and retire journal.",
+    "checkpoint": "journal contains at least two panes, and practice still has a running pane."
+  },
+  {
+    "id": "close-pane",
+    "title": "Keep a tidy deck",
+    "topic": "Close panes safely",
+    "duration": "2 min",
+    "intro": "Time to tidy up. Learn the difference between leaving a shell and leaving your workspace running.",
+    "concept": "Typing exit ends the current shell and closes its pane. Killing a pane also ends programs inside it — so only use these test shells.",
+    "steps": [
+      "Select practice. If a pane is zoomed, unzoom it first.",
+      "In each extra pane, type exit and press Enter. Leave exactly one pane in practice.",
+      "Keep the last practice shell running."
+    ],
+    "keys": [
+      [
+        "exit",
+        "Close the current shell"
+      ],
+      [
+        "Ctrl-b x",
+        "Kill a pane (asks first)"
+      ],
+      [
+        "Ctrl-b z",
+        "Unzoom if needed"
+      ]
+    ],
+    "tip": "Detach keeps programs alive; exit ends a shell. They are not interchangeable.",
+    "checkpoint": "practice still exists with exactly one pane."
+  },
+  {
+    "id": "close-window",
+    "title": "Travel light",
+    "topic": "Close a window",
+    "duration": "2 min",
+    "intro": "A window closes when its last pane exits. Let's retire the journal without disturbing your home port.",
+    "concept": "You can close panes individually, or kill an entire window. Always check which window you're in before closing it.",
+    "steps": [
+      "Select journal in the window chooser.",
+      "Type exit in its shell. If you added extra panes there, exit those too.",
+      "Confirm you're back in practice and it still has a working shell."
+    ],
+    "keys": [
+      [
+        "Ctrl-b w",
+        "Select journal"
+      ],
+      [
+        "exit",
+        "Close its last shell"
+      ],
+      [
+        "Ctrl-b &",
+        "Kill a whole window (asks first)"
+      ]
+    ],
+    "tip": "Don't practice destructive shortcuts in windows with real work. This dedicated tmux session is for experiments.",
+    "checkpoint": "journal is gone and practice still exists."
+  },
+  {
+    "id": "copy-mode",
+    "title": "Look back over the wake",
+    "topic": "Scrollback & copy mode",
+    "duration": "3 min",
+    "intro": "Output scrolled away? tmux keeps a history you can explore without rerunning the command.",
+    "concept": "Copy mode lets you navigate tmux’s scrollback while your shell remains running. This lesson uses the standard emacs-style copy-mode keys, set by the trainer for consistency.",
+    "steps": [
+      "Select practice and generate some harmless output: i=1; while [ \"$i\" -le 80 ]; do echo \"Captain Pane log $i\"; i=$((i+1)); done",
+      "Press Ctrl-b [ to enter copy mode. Use Up or Page Up (Fn-Up on many Mac keyboards) to look through earlier lines.",
+      "Press q to return to the live shell. Enter copy mode once more, then click Check my work while still in copy mode.",
+      "After passing, click the terminal and press q before beginning the detach mission."
+    ],
+    "keys": [
+      [
+        "Ctrl-b [",
+        "Enter copy mode"
+      ],
+      [
+        "Up / Page Up",
+        "Browse earlier output"
+      ],
+      [
+        "q",
+        "Exit copy mode"
+      ]
+    ],
+    "tip": "Copy mode and the macOS clipboard are different things. This mission practices scrollback navigation, not system-clipboard integration.",
+    "checkpoint": "A pane in practice is currently in tmux copy mode."
+  },
+  {
+    "id": "detach",
+    "title": "Leave. Return. Carry on.",
+    "topic": "Detach & reconnect",
+    "duration": "3 min",
+    "intro": "This is the superpower: your terminal workspace can outlive the terminal looking at it.",
+    "concept": "Detaching disconnects the display, not the session. The app will keep your tmux server running when you close it, too. A reboot still ends those processes.",
+    "steps": [
+      "If you are still in copy mode, press q first. In practice, run export CAPTAIN_PANE=ahoy to leave a little marker in your shell.",
+      "Press Ctrl-b d. The terminal will disconnect, but your shells will keep running.",
+      "Click Reconnect terminal, then run echo $CAPTAIN_PANE. Seeing ahoy means you're in the same shell. Now check your work."
+    ],
+    "keys": [
+      [
+        "Ctrl-b d",
+        "Detach, keeping your workspace alive"
+      ]
+    ],
+    "tip": "You must detach using the keyboard and reconnect for this checkpoint. Closing a shell with exit is not detaching.",
+    "checkpoint": "Detach from the terminal, then reconnect to the same session."
+  }
+]

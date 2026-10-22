@@ -1,0 +1,37 @@
+{
+  "name": "captain-pane",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Your friendly, hands-on tmux coach for macOS",
+  "author": "Captain Pane",
+  "main": "desktop/main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "postinstall": "electron-builder install-app-deps",
+    "test": "node --test desktop/tests/*.test.cjs",
+    "test:desktop": "electron . --smoke-test",
+    "build:mac": "electron-builder --mac dir",
+    "icon:mac": "swift scripts/create-icon.swift"
+  },
+  "dependencies": {
+    "@xterm/addon-fit": "^0.11.0",
+    "@xterm/xterm": "^6.0.0",
+    "node-pty": "^1.1.0"
+  },
+  "devDependencies": {
+    "electron": "^45.0.0",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "dev.captainpane.desktop",
+    "productName": "Captain Pane",
+    "asar": true,
+    "asarUnpack": ["node_modules/node-pty/**"],
+    "files": ["desktop/**", "package.json"],
+    "mac": {
+      "category": "public.app-category.education",
+      "icon": "desktop/icon.icns",
+      "target": "dir"
+    }
+  }
+}

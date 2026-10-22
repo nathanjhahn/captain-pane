@@ -1,0 +1,9 @@
+/* Keep both columns inside the window, including on smaller MacBook displays. */
+.app-layout { grid-template-rows: minmax(0, 1fr); }
+.sidebar { min-height: 0; overflow-y: auto; scrollbar-width: thin; }
+.sidebar > * { flex-shrink: 0; }
+main { min-height: 0; }
+/* Let the growing course list scroll without hiding progress or reset controls. */
+.sidebar #missions { flex: 1; min-height: 0; overflow-y: auto; scrollbar-width: thin; }
+.sidebar .voyage { margin-top: 0; padding-top: 20px; }
+

@@ -1,0 +1,43 @@
+# Node / Electron dependencies and generated builds
+node_modules/
+/dist/
+/artifacts/
+coverage/
+
+# Local training progress
+.tmux-practice/
+
+# Python caches and virtual environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Local agent state and session notes
+/.memory/
+/.pi/
+
+# Environment secrets (keep shareable examples)
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+# Signing credentials and private keys
+*.p12
+*.pfx
+*.key
+*.pem
+
+# Logs
+*.log
+
+# macOS metadata
+.DS_Store
+._*
+
+# Editor-local files
+.idea/
+*.swp
+*.swo
+*~

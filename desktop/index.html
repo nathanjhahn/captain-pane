@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'">
+  <title>Captain Pane</title>
+  <link rel="stylesheet" href="../node_modules/@xterm/xterm/css/xterm.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="layout.css">
+</head>
+<body>
+  <header class="titlebar"><span class="titlebar-name">CAPTAIN PANE <span>/</span> YOUR TERMINAL PLAYGROUND</span><span class="local-badge">LOCAL · PRIVATE · REAL TMUX</span></header>
+  <div class="app-layout">
+    <aside class="sidebar" aria-label="Course navigation">
+      <div class="brand"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="3" y="3" width="42" height="42" rx="13"/><path d="m30 15-5 12-12 5 5-12Z"/><circle cx="23" cy="24" r="2"/></svg><div>Captain Pane<small>Your friendly tmux coach</small></div></div>
+      <div class="course-label">THE LEARNING PATH <span>01</span></div>
+      <nav id="missions" aria-label="Missions"></nav>
+      <div class="voyage"><div><span>Your voyage</span><span id="progress-label">0 / 7</span></div><progress id="progress" value="0" max="7" aria-label="Course completion"></progress><p>Small steps. Real confidence.</p></div>
+      <button id="reset" class="quiet-button">↺ &nbsp; Start a fresh voyage</button>
+      <div class="sidebar-footer">Built for curious minds.<br>And a little terminal adventure.</div>
+    </aside>
+    <main>
+      <div class="page-heading"><div><p class="eyebrow">LESS TUTORIAL. MORE TRY-IT-YOURSELF.</p><h1>Make yourself at home<br>in the terminal.</h1></div><span class="edition">THE HANDS-ON<br>TMUX FIELD GUIDE</span></div>
+      <div class="workspace">
+        <section class="lesson-panel" aria-labelledby="lesson-title">
+          <div class="lesson-scroll" id="lesson-content">
+            <div class="mission-meta"><span id="mission-number">MISSION 01</span><span id="duration"></span></div>
+            <h2 id="lesson-title">Welcome aboard.</h2>
+            <p id="intro" class="intro"></p>
+            <p id="concept" class="concept"></p>
+            <h3>YOUR MISSION</h3><ol id="steps"></ol>
+            <h3>SHORTCUTS TO TRY</h3><div id="keys" class="keys"></div>
+            <div class="captain-tip"><span>FROM THE CAPTAIN</span><p id="tip"></p></div>
+          </div>
+          <div class="checkpoint"><div id="feedback" role="status" aria-live="polite"></div><p id="checkpoint"></p><button id="check" class="primary-button">Check my work <span>→</span></button></div>
+        </section>
+        <section class="terminal-panel" aria-label="Live tmux terminal">
+          <div class="terminal-toolbar"><div class="terminal-label"><span id="connection-dot" class="dot"></span><strong>Practice deck</strong><span id="connection-label">Not connected</span></div><button id="connect" class="small-button">Connect terminal</button></div>
+          <div class="terminal-stage"><div id="terminal" aria-label="Real terminal running tmux"></div><div id="terminal-overlay"><div class="terminal-welcome"><div class="prompt-art" aria-hidden="true">&gt;_</div><p class="eyebrow">A REAL TERMINAL. A FRESH START.</p><h2 id="overlay-title">Your practice deck awaits.</h2><p id="overlay-copy">Connect to open a real tmux session.<br>Your lessons stay right here beside you.</p><button id="overlay-connect" class="primary-button">Let's set sail <span>→</span></button></div></div></div>
+          <div class="terminal-footer"><span><kbd>Ctrl</kbd> + <kbd>b</kbd> <span class="then">then</span> <kbd>w</kbd> windows</span><span><kbd>Ctrl</kbd> + <kbd>b</kbd> <span class="then">then</span> <kbd>d</kbd> detach</span></div>
+          <div class="safety-note"><span>◇</span><p>Isolated tmux session. Real shell commands.<br>Practice freely — but commands can still change your files.</p></div>
+        </section>
+      </div>
+    </main>
+  </div>
+  <script src="../node_modules/@xterm/xterm/lib/xterm.js"></script>
+  <script src="../node_modules/@xterm/addon-fit/lib/addon-fit.js"></script>
+  <script src="renderer.js"></script>
+</body>
+</html>
